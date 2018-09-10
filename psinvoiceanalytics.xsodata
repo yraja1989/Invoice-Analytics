@@ -81,7 +81,7 @@ aggregates always (
 	SUM of "CC_Total_Paid_Invoices",
     SUM of "CC_Total_Unpaid_Invoices"
 
-	
+	/*comment line to check the changes*/
 	
 	        );
 	        
