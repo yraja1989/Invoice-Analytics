@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dimension:dimension xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="1.2" id="AT_PAYMENT_TYPE_MASTER" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" dimensionType="Standard">
+  <origin/>
+  <descriptions defaultDescription="Payment Type Master"/>
+  <metadata changedAt="2018-07-17 18:35:39.467"/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <attributes>
+    <attribute id="Payment_ID" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="Payment ID"/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PAYMENT_TYPE_MASTER" columnName="Payment_ID"/>
+    </attribute>
+    <attribute id="Payment_Method" order="2" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="Payment Method"/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PAYMENT_TYPE_MASTER" columnName="Payment Method"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <privateDataFoundation>
+    <tableProxies>
+      <tableProxy>
+        <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PAYMENT_TYPE_MASTER"/>
+      </tableProxy>
+    </tableProxies>
+    <joins/>
+    <layout>
+      <shapes>
+        <shape modelObjectName="PS_CIA_PAYMENT_TYPE_MASTER" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+          <upperLeftCorner x="70" y="30"/>
+        </shape>
+        <shape modelObjectName="DataFoundation" modelObjectNameSpace="DataFoundation" modelObjectType="repository">
+          <upperLeftCorner x="40" y="85"/>
+          <rectangleSize/>
+        </shape>
+      </shapes>
+    </layout>
+  </privateDataFoundation>
+  <hierarchies/>
+</Dimension:dimension>

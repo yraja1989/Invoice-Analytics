@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControl="http://www.sap.com/ndb/SQLCoreModelAccessControl.ecore" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Privilege="http://www.sap.com/ndb/BiModelPrivilege.ecore" schemaVersion="2.3" id="CV_PS_AP_INVOICE_ANALYTICS" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <origin/>
+  <descriptions defaultDescription="Accounts Payable Invoice Analytics"/>
+  <metadata changedAt="2018-08-10 16:21:59.446"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="AN_PS_AP_INVOICE_ANALYTICS" type="ANALYTIC_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/PS-CMP-INVOICE-ANALYTICS/analyticviews/AN_PS_AP_INVOICE_ANALYTICS</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="AP_Analytical_View">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="Business_Partner"/>
+        <viewAttribute id="Business_Partner_ID"/>
+        <viewAttribute id="CALMONTH"/>
+        <viewAttribute id="CALQUARTER"/>
+        <viewAttribute id="CALWEEK"/>
+        <viewAttribute id="CC_Paid_Indicator"/>
+        <viewAttribute id="Company_Code_ID"/>
+        <viewAttribute id="Company_Group"/>
+        <viewAttribute id="Company_Group_ID"/>
+        <viewAttribute id="Company_Name"/>
+        <viewAttribute id="Creation_Date"/>
+        <viewAttribute id="Currency"/>
+        <viewAttribute id="DATE_SQL"/>
+        <viewAttribute id="DAY"/>
+        <viewAttribute id="DAY_INT"/>
+        <viewAttribute id="DAY_OF_WEEK"/>
+        <viewAttribute id="Document_No_"/>
+        <viewAttribute id="KTX"/>
+        <viewAttribute id="LTX"/>
+        <viewAttribute id="MONTH"/>
+        <viewAttribute id="MONTH_INT"/>
+        <viewAttribute id="Payment_Completed"/>
+        <viewAttribute id="Payment_Method"/>
+        <viewAttribute id="Purchase_Group"/>
+        <viewAttribute id="Purchase_Group_ID"/>
+        <viewAttribute id="Purchase_Org"/>
+        <viewAttribute id="Purchase_Organization"/>
+        <viewAttribute id="Purchase_Organization_ID"/>
+        <viewAttribute id="QUARTER"/>
+        <viewAttribute id="QUARTER_INT"/>
+        <viewAttribute id="Total_Gross_Amount"/>
+        <viewAttribute id="Total_Paid"/>
+        <viewAttribute id="Total_Purchase_Invoices"/>
+        <viewAttribute id="WEEK"/>
+        <viewAttribute id="WEEK_INT"/>
+        <viewAttribute id="WEEK_YEAR"/>
+        <viewAttribute id="YEAR"/>
+        <viewAttribute id="YEAR_INT"/>
+        <viewAttribute id="row_count"/>
+        <viewAttribute id="PaymentTerms_ID"/>
+        <viewAttribute id="PaymentTerms_Days"/>
+        <viewAttribute id="Paid_In_Full_Date"/>
+        <viewAttribute id="Total_Net_Amount"/>
+        <viewAttribute id="Document_Status"/>
+        <viewAttribute id="Days_to_Pay_in_Full"/>
+        <viewAttribute id="Amount_Currently_Due"/>
+        <viewAttribute id="Total_Outstanding"/>
+        <viewAttribute id="Invoice_Received_Date"/>
+        <viewAttribute id="Percentage_Paid_Late"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#AN_PS_AP_INVOICE_ANALYTICS">
+        <mapping xsi:type="Calculation:AttributeMapping" target="Business_Partner" source="Business_Partner"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Business_Partner_ID" source="Business_Partner_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALMONTH" source="CALMONTH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALQUARTER" source="CALQUARTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CALWEEK" source="CALWEEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CC_Paid_Indicator" source="CC_Paid_Indicator"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Company_Code_ID" source="Company_Code_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Company_Group" source="Company_Group"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Company_Group_ID" source="Company_Group_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Company_Name" source="Company_Name"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Creation_Date" source="Creation_Date"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Currency" source="Currency"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DATE_SQL" source="DATE_SQL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAY" source="DAY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAY_INT" source="DAY_INT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DAY_OF_WEEK" source="DAY_OF_WEEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Document_No_" source="Document_No_"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="KTX" source="KTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LTX" source="LTX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MONTH" source="MONTH"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MONTH_INT" source="MONTH_INT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Payment_Completed" source="Payment_Completed"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Payment_Method" source="Payment_Method"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Purchase_Group" source="Purchase_Group"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Purchase_Group_ID" source="Purchase_Group_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Purchase_Org" source="Purchase_Org"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Purchase_Organization" source="Purchase_Organization"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Purchase_Organization_ID" source="Purchase_Organization_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER" source="QUARTER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="QUARTER_INT" source="QUARTER_INT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Total_Gross_Amount" source="Total_Gross_Amount"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Total_Paid" source="Total_Paid"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Total_Purchase_Invoices" source="Total_Purchase_Invoices"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WEEK" source="WEEK"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WEEK_INT" source="WEEK_INT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="WEEK_YEAR" source="WEEK_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="YEAR" source="YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="YEAR_INT" source="YEAR_INT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="row_count" source="row.count"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PaymentTerms_ID" source="PaymentTerms_ID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PaymentTerms_Days" source="PaymentTerms_Days"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Paid_In_Full_Date" source="Paid_In_Full_Date"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Total_Net_Amount" source="Total_Net_Amount"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Document_Status" source="Document_Status"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Days_to_Pay_in_Full" source="Days_to_Pay_in_Full"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Amount_Currently_Due" source="Amount_Currently_Due"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Total_Outstanding" source="Total_Outstanding"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Invoice_Received_Date" source="Invoice_Received_Date"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="Percentage_Paid_Late" source="Percentage_Paid_Late"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="AP_Analytical_View">
+    <descriptions/>
+    <attributes>
+      <attribute id="Business_Partner" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Partner"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Business_Partner"/>
+      </attribute>
+      <attribute id="Business_Partner_ID" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business_Partner_ID"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Business_Partner_ID"/>
+      </attribute>
+      <attribute id="CALMONTH" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CALMONTH"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="CALMONTH"/>
+      </attribute>
+      <attribute id="CALQUARTER" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CALQUARTER"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="CALQUARTER"/>
+      </attribute>
+      <attribute id="CALWEEK" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CALWEEK"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="CALWEEK"/>
+      </attribute>
+      <attribute id="Company_Code_ID" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company_Code_ID"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Company_Code_ID"/>
+      </attribute>
+      <attribute id="Company_Group" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company_Group"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Company_Group"/>
+      </attribute>
+      <attribute id="Company_Group_ID" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company_Group_ID"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Company_Group_ID"/>
+      </attribute>
+      <attribute id="Company_Name" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company_Name"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Company_Name"/>
+      </attribute>
+      <attribute id="Creation_Date" order="11" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Creation_Date"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Creation_Date"/>
+      </attribute>
+      <attribute id="Currency" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Currency"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Currency"/>
+      </attribute>
+      <attribute id="DATE_SQL" order="13" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DATE_SQL"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="DATE_SQL"/>
+      </attribute>
+      <attribute id="DAY" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DAY"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="DAY"/>
+      </attribute>
+      <attribute id="DAY_INT" order="15" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DAY_INT"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="DAY_INT"/>
+      </attribute>
+      <attribute id="DAY_OF_WEEK" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DAY_OF_WEEK"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="DAY_OF_WEEK"/>
+      </attribute>
+      <attribute id="Document_No_" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Document_No_"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Document_No_"/>
+      </attribute>
+      <attribute id="KTX" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Month "/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="KTX"/>
+      </attribute>
+      <attribute id="LTX" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LTX"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="LTX"/>
+      </attribute>
+      <attribute id="MONTH" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MONTH"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="MONTH"/>
+      </attribute>
+      <attribute id="MONTH_INT" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MONTH_INT"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="MONTH_INT"/>
+      </attribute>
+      <attribute id="Payment_Completed" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment_Completed"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Payment_Completed"/>
+      </attribute>
+      <attribute id="Payment_Method" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment_Method"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Payment_Method"/>
+      </attribute>
+      <attribute id="Purchase_Group" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase_Group"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Purchase_Group"/>
+      </attribute>
+      <attribute id="Purchase_Group_ID" order="25" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase_Group_ID"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Purchase_Group_ID"/>
+      </attribute>
+      <attribute id="Purchase_Org" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase_Org"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Purchase_Org"/>
+      </attribute>
+      <attribute id="Purchase_Organization" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase_Organization"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Purchase_Organization"/>
+      </attribute>
+      <attribute id="Purchase_Organization_ID" order="28" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Purchase_Organization_ID"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Purchase_Organization_ID"/>
+      </attribute>
+      <attribute id="QUARTER" order="29" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="QUARTER"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="QUARTER"/>
+      </attribute>
+      <attribute id="QUARTER_INT" order="30" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="QUARTER_INT"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="QUARTER_INT"/>
+      </attribute>
+      <attribute id="WEEK" order="34" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WEEK"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="WEEK"/>
+      </attribute>
+      <attribute id="WEEK_INT" order="35" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WEEK_INT"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="WEEK_INT"/>
+      </attribute>
+      <attribute id="WEEK_YEAR" order="36" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="WEEK_YEAR"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="WEEK_YEAR"/>
+      </attribute>
+      <attribute id="YEAR" order="37" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="YEAR"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="YEAR"/>
+      </attribute>
+      <attribute id="YEAR_INT" order="38" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="YEAR_INT"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="YEAR_INT"/>
+      </attribute>
+      <attribute id="PaymentTerms_Days" order="41" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment Term Days"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="PaymentTerms_Days"/>
+      </attribute>
+      <attribute id="Paid_In_Full_Date" order="46" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Paid_In_Full_Date"/>
+      </attribute>
+      <attribute id="Document_Status" order="49" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Document_Status"/>
+      </attribute>
+      <attribute id="Invoice_Received_Date" order="53" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="Invoice_Received_Date"/>
+      </attribute>
+      <attribute id="PaymentTerms_ID" order="59" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment Terms"/>
+        <keyMapping columnObjectName="AP_Analytical_View" columnName="PaymentTerms_ID"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="CC_Expected_Payment_Date" hidden="false" order="40" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Expected Invoice Payment Date"/>
+        <keyCalculation datatype="DATE" expressionLanguage="SQL">
+          <formula>ADD_DAYS (TO_DATE (&quot;DATE_SQL&quot;, 'YYYY-MM-DD'), &quot;CC_Payment_Days&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Payments_Over" hidden="false" order="44" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payments Over Completed "/>
+        <keyCalculation datatype="NVARCHAR" expressionLanguage="COLUMN_ENGINE" length="5">
+          <formula>if(&quot;CC_Expected_Payment_Date&quot;&lt;now(),'Yes','No')</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Expected_Payment_Year" hidden="false" order="61" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Excepeted payment Year"/>
+        <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="4">
+          <formula>year(&quot;CC_Expected_Payment_Date&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Expected_Payment_Month" hidden="false" order="62" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Excepted Payment Month"/>
+        <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="3">
+          <formula>month(&quot;CC_Expected_Payment_Date&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Excepted_Payment_Quarter" hidden="false" order="63" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Excepetd Payment Quarter"/>
+        <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="2">
+          <formula>quarter(&quot;CC_Expected_Payment_Date&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Invoice_Receive_Year" hidden="false" order="65" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Invoice Receive Year"/>
+        <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="4">
+          <formula>year(&quot;Invoice_Received_Date&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Invoice_Receive_Month" hidden="false" order="66" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Invoice Recieve Month"/>
+        <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="5">
+          <formula>month(&quot;Invoice_Received_Date&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+      <calculatedAttribute id="CC_Invoice_Receive_Quarter" hidden="false" order="67" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Invoice Receive Quarter"/>
+        <keyCalculation datatype="VARCHAR" expressionLanguage="SQL" length="2">
+          <formula>quarter(&quot;Invoice_Received_Date&quot;)</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="CC_Paid_Indicator" order="6" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="CC_Paid_Indicator"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="CC_Paid_Indicator"/>
+      </measure>
+      <measure id="Total_Gross_Amount" order="31" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Total_Gross_Amount"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Total_Gross_Amount"/>
+      </measure>
+      <measure id="Total_Paid" order="32" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Paid Amount (USD)"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Total_Paid"/>
+      </measure>
+      <measure id="Total_Purchase_Invoices" order="33" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Total_Purchase_Invoices"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Total_Purchase_Invoices"/>
+      </measure>
+      <measure id="row_count" order="39" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="row_count"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="row_count"/>
+      </measure>
+      <measure id="Total_Net_Amount" order="48" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Total Purchase Amount"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Total_Net_Amount"/>
+      </measure>
+      <measure id="Days_to_Pay_in_Full" order="50" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Days_to_Pay_in_Full"/>
+      </measure>
+      <measure id="Amount_Currently_Due" order="51" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Amount_Currently_Due"/>
+      </measure>
+      <measure id="Total_Outstanding" order="52" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Outstanding Amount (USD)"/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Total_Outstanding"/>
+      </measure>
+      <measure id="Percentage_Paid_Late" order="54" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping columnObjectName="AP_Analytical_View" columnName="Percentage_Paid_Late"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures>
+      <measure id="CC_Expected_Payment_Days" hidden="false" order="45" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Expected Payment Days"/>
+        <formula>daysbetween(&quot;Paid_In_Full_Date&quot;,&quot;CC_Expected_Payment_Date&quot;)</formula>
+      </measure>
+      <measure id="CC_Amount_Paid_Percentage" hidden="false" order="47" aggregationType="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="13" scale="3">
+        <descriptions defaultDescription="Amount Paid in %"/>
+        <formula>(&quot;Total_Paid&quot;/&quot;Total_Net_Amount&quot;)*100</formula>
+      </measure>
+      <measure id="CC_Amount_Due_Percentage" hidden="false" order="55" aggregationType="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="13" scale="3">
+        <descriptions defaultDescription="Amount Due in %"/>
+        <formula>(&quot;Total_Outstanding&quot;/&quot;Total_Net_Amount&quot;)*100</formula>
+      </measure>
+      <measure id="CC_Days_Betweens" hidden="false" order="56" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="CC_Days_Between"/>
+        <formula>daysbetween(&quot;DATE_SQL&quot;,now())</formula>
+      </measure>
+      <measure id="CC_Due_Amt" hidden="false" order="57" aggregationType="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="13" scale="3">
+        <descriptions defaultDescription="Due Amount (USD)"/>
+        <formula>&quot;Total_Outstanding&quot;-&quot;CC_Overdue_Amount&quot;</formula>
+      </measure>
+      <measure id="CC_Overdue_Amount" hidden="false" order="58" aggregationType="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="13" scale="3">
+        <descriptions defaultDescription="Overdue Amount (USD)"/>
+        <formula>if(&quot;CC_Days_Betweens&quot;>&quot;CC_Payment_Days&quot;,&quot;Total_Outstanding&quot;,0)</formula>
+      </measure>
+      <measure id="CC_Payment_Days" hidden="false" order="60" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="CC_Payment_Days"/>
+        <formula>&quot;PaymentTerms_Days&quot;</formula>
+      </measure>
+      <measure id="CC_Days_Between_Invoice_ReceiveDate" hidden="false" order="64" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Days Between Invoice&amp;Recieve Date"/>
+        <formula>daysbetween(&quot;DATE_SQL&quot;,&quot;Invoice_Received_Date&quot;)</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures>
+      <measure id="CC_Total_Paid_Invoices" hidden="false" order="42" baseMeasure="#CC_Paid_Indicator" datatype="DECIMAL" length="18" scale="0">
+        <descriptions defaultDescription="Total Paid Purchase Invoices"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="Payment_Completed">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="TRUE"/>
+          </filter>
+          <attributeName>Payment_Completed</attributeName>
+        </restriction>
+      </measure>
+      <measure id="CC_Total_Unpaid_Invoices" hidden="false" order="43" baseMeasure="#CC_Paid_Indicator" datatype="DECIMAL" length="18" scale="0">
+        <descriptions defaultDescription="Total Unpaid Purchase Invoices"/>
+        <restriction logicalOperator="AND">
+          <filter xsi:type="Privilege:AttributeFilter" attributeName="Payment_Completed">
+            <valueFilter xsi:type="AccessControl:SingleValueFilter" including="true" value="FALSE"/>
+          </filter>
+          <attributeName>Payment_Completed</attributeName>
+        </restriction>
+      </measure>
+    </restrictedMeasures>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="AP_Analytical_View" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="40" y="200"/>
+        <rectangleSize height="30" width="140"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

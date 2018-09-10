@@ -1,0 +1,177 @@
+FUNCTION "PS_WARRANTY_ANALYTICS"."PS-CMP-INVOICE-ANALYTICS::PS_TBF_AR_Invoices" ( ) 
+	RETURNS table(
+	
+	"Document_No" NVARCHAR(20),
+	 "Payment_Complete" NVARCHAR(10),
+	 "Currency"NVARCHAR(10),
+	 "Paid_in_Full_Date" DATE,
+	 "Document_Status" NVARCHAR(20),
+	 "Cost_Center" NVARCHAR(20),
+	 "PaymentTerms_ID" NVARCHAR,
+	 "Business_Partner" nvarchar(60),
+	 "DATE_SQL" date,
+	 "YEAR" NVARCHAR(4),
+	 "QUARTER" NVARCHAR(2),
+	 "MONTH" NVARCHAR(2),      
+	 "WEEK" NVARCHAR(2),
+	 "DAY_OF_WEEK" NVARCHAR(2),
+	 "DAY" nvarchar(2),
+	 "CALQUARTER" NVARCHAR(10),
+	 "CALMONTH" NVARCHAR(10) ,
+	 "CALWEEK" NVARCHAR(10),
+	 "YEAR_INT" NVARCHAR(10),
+	 "QUARTER_INT" NVARCHAR(10),
+	 "MONTH_INT" NVARCHAR(10),
+	 "WEEK_INT" NVARCHAR(10),
+	 "DAY_INT" NVARCHAR(10) ,
+	 "WEEK_YEAR" NVARCHAR(10) ,
+	 "LTX" NVARCHAR(20),
+	 "KTX" NVARCHAR(20),
+	 "CC_Payment_Terms_Over_Flag" NVARCHAR(10),
+	 "CC_Expected_Payment_Date" date,
+	 "CC_Expected_Payment_Year" NVARCHAR(10) ,
+	 "CC_Expected_Payment_Month" NVARCHAR(10),
+	 "CC_Expected_Quarter" NVARCHAR(10),
+	"Total_Paid" decimal(13,3),
+	"Total_Outstanding" DECIMAL(13,3),
+	"Cummulative_Paid" decimal(13,3),
+	"Cummulative_Outstanding" decimal(13,3),
+	"Paid_Occurence" nvarchar(10),
+	"CC_Amount_Paid_Percentage" double,
+	"CC_Total_Invoices" double,
+	"Total_Gross_Amount" decimal(13,3),
+	"RC_Paid_Invoices" double,
+	"RC_UnPaid_Invoices" double,
+	"CC_Amount_Due_Percentage" double,
+	"CC_Overdue_Amount" double,
+	"CC_Due_Amount" double,
+	"CC_Invoice_Paid_Days_Between" double,
+	"Total_Net_Amount" decimal(13,3),
+	"Sales_Organization" nvarchar(20),
+	 "Company_Code" nvarchar(20),
+	 "CC_PaymentTerm_Days" INTEGER,
+	 "CC_DB_EXPECTED_PAYMENT_AMOUNT" double,
+	 "Payment_Due_Occurence" nvarchar(4)
+	)
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER AS
+BEGIN
+/***************************** 
+	Write your function logic
+ *****************************/
+ 
+ 
+ return
+ select 
+ 
+ "Document_No",
+	 "Payment_Complete",
+	 "Currency",
+	 "Paid_in_Full_Date",
+	 "Document_Status",
+	 "Cost_Center",
+	 "PaymentTerms_ID",
+	 "Business_Partner",
+	 "DATE_SQL",
+	 "YEAR",
+	 "QUARTER",
+	 "MONTH",
+	 "WEEK",
+	 "DAY_OF_WEEK",
+	 "DAY",
+	 "CALQUARTER",
+	 "CALMONTH",
+	 "CALWEEK",
+	 "YEAR_INT",
+	 "QUARTER_INT",
+	 "MONTH_INT",
+	 "WEEK_INT",
+	 "DAY_INT",
+	 "WEEK_YEAR",
+	 "LTX",
+	 "KTX",
+	 "CC_Payment_Terms_Over_Flag",
+	 "CC_Expected_Payment_Date",
+	 "CC_Expected_Payment_Year",
+	 "CC_Expected_Payment_Month",
+	 "CC_Expected_Quarter",
+	 sum("Total_Paid") as "Total_Paid",
+	 sum("Total_Outstanding") as "Total_Outstanding",
+	 sum("Total_Paid") over (order by "DATE_SQL" ROWS UNBOUNDED PRECEDING) as "Cummulative_Paid",
+	 sum("Total_Outstanding") over (order by "DATE_SQL" ROWS UNBOUNDED PRECEDING) as "Cummulative_Outstanding",
+	 CASE 
+ 	    when SUM("CC_Invoice_Paid_Days_Between") BETWEEN 1 AND 30 then '<30'
+        WHEN SUM("CC_Invoice_Paid_Days_Between") BETWEEN 30 AND 45 THEN '30-45'
+        WHEN SUM("CC_Invoice_Paid_Days_Between") BETWEEN 45 AND 60 THEN '45-60'  
+        WHEN SUM("CC_Invoice_Paid_Days_Between") > 60 THEN '>60'
+        ELSE 'Not Paid' END AS "Paid_Occurence",
+        
+        sum("CC_Amount_Paid_Percentage") AS "CC_Amount_Paid_Percentage",
+	 sum("CC_Total_Invoices") AS "CC_Total_Invoices",
+	 sum("Total_Gross_Amount") AS "Total_Gross_Amount",
+	 sum("RC_Paid_Invoices") AS "RC_Paid_Invoices",
+	 sum("RC_UnPaid_Invoices") AS "RC_UnPaid_Invoices",
+	 sum("CC_Amount_Due_Percentage") AS "CC_Amount_Due_Percentage",
+	 sum("CC_Overdue_Amount") AS "CC_Overdue_Amount",
+	 sum("CC_Due_Amount") AS "CC_Due_Amount",
+	 sum("CC_Invoice_Paid_Days_Between") AS "CC_Invoice_Paid_Days_Between",
+	 sum("Total_Net_Amount") as "Total_Net_Amount",
+	 "Sales_Organization",
+	 "Company_Code",
+	 "CC_PaymentTerm_Days",
+	 "CC_DB_EXPECTED_PAYMENT_AMOUNT",
+	 CASE 
+ 	    when SUM("CC_DB_EXPECTED_PAYMENT_AMOUNT") <= 0 then '<30'
+        WHEN SUM("CC_DB_EXPECTED_PAYMENT_AMOUNT") BETWEEN 0 AND 5 THEN '0-5'
+        WHEN SUM("CC_DB_EXPECTED_PAYMENT_AMOUNT") BETWEEN 5 AND 15 THEN '5-15'  
+        WHEN SUM("CC_DB_EXPECTED_PAYMENT_AMOUNT") BETWEEN 15 AND 30 THEN '15-30'
+        ELSE '>30' END AS "Payment_Due_Occurence"
+	 
+ 
+ 
+ from "_SYS_BIC"."PS-CMP-INVOICE-ANALYTICS/CV_PS_AR_INVOICE_ANALYTICS" 
+ 
+ group by
+ 
+ "Document_No",
+	 "Payment_Complete",
+	 "Currency",
+	 "Paid_in_Full_Date",
+	 "Document_Status",
+	 "Cost_Center",
+	 "PaymentTerms_ID",
+	 "Business_Partner",
+	 "DATE_SQL",
+	 "YEAR",
+	 "QUARTER",
+	 "MONTH",
+	 "WEEK",
+	 "DAY_OF_WEEK",
+	 "DAY",
+	 "CALQUARTER",
+	 "CALMONTH",
+	 "CALWEEK",
+	 "YEAR_INT",
+	 "QUARTER_INT",
+	 "MONTH_INT",
+	 "WEEK_INT",
+	 "DAY_INT",
+	 "WEEK_YEAR",
+	 "LTX",
+	 "KTX",
+	 "CC_Payment_Terms_Over_Flag",
+	 "CC_Expected_Payment_Date",
+	 "CC_Expected_Payment_Year",
+	 "CC_Expected_Payment_Month",
+	 "CC_Expected_Quarter",
+	 "Total_Paid",
+	 "Total_Outstanding",
+	 "Sales_Organization",
+	 "Company_Code",
+	 "CC_PaymentTerm_Days",	 
+	 "CC_DB_EXPECTED_PAYMENT_AMOUNT"
+	 
+	 
+ ;
+
+END;

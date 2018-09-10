@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dimension:dimension xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="1.2" id="AT_AP_COMPANY_CODE" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" dimensionType="Standard">
+  <origin/>
+  <descriptions defaultDescription="AT_AP_COMPANY_CODE"/>
+  <metadata changedAt="2018-07-27 16:49:26.067"/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <attributes>
+    <attribute id="Business_Partner" order="1" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER" columnName="Business Partner"/>
+    </attribute>
+    <attribute id="Company_Group_ID" key="true" order="2" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Company_Group_ID"/>
+    </attribute>
+    <attribute id="Company_Group" order="3" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Company_Group"/>
+    </attribute>
+    <attribute id="Company_Code_ID" key="true" order="4" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Company_Code_ID"/>
+    </attribute>
+    <attribute id="Company_Name" order="5" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Company Name"/>
+    </attribute>
+    <attribute id="Purchase_Organization_ID" key="true" order="6" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Purchase_Organization_ID"/>
+    </attribute>
+    <attribute id="Purchase_Organization" order="7" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Purchase Organization"/>
+    </attribute>
+    <attribute id="Purchase_Group_ID" key="true" order="8" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Purchase_Group_ID"/>
+    </attribute>
+    <attribute id="Purchase_Group" order="9" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Purchase Group"/>
+    </attribute>
+    <attribute id="Business_Partner_ID" key="true" order="10" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER" columnName="Business_Partner"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <privateDataFoundation>
+    <tableProxies>
+      <tableProxy>
+        <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER"/>
+      </tableProxy>
+      <tableProxy>
+        <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER"/>
+      </tableProxy>
+    </tableProxies>
+    <joins>
+      <join>
+        <leftTable schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PURCHASE_ORG_MASTER"/>
+        <rightTable schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER"/>
+        <leftColumns>
+          <columnName>Business_Partner</columnName>
+        </leftColumns>
+        <rightColumns>
+          <columnName>Business_Partner_ID</columnName>
+        </rightColumns>
+        <properties joinOperator="Equal" joinType="referential"/>
+      </join>
+    </joins>
+    <layout>
+      <shapes>
+        <shape modelObjectName="PS_CIA_PURCHASE_ORG_MASTER" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+          <upperLeftCorner x="70" y="30"/>
+        </shape>
+        <shape modelObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+          <upperLeftCorner x="511" y="30"/>
+        </shape>
+        <shape modelObjectName="DataFoundation" modelObjectNameSpace="DataFoundation" modelObjectType="repository">
+          <upperLeftCorner x="40" y="85"/>
+          <rectangleSize height="0" width="0"/>
+        </shape>
+      </shapes>
+    </layout>
+  </privateDataFoundation>
+  <hierarchies/>
+</Dimension:dimension>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CV_AR_INVOICE_ANALYTICS" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <descriptions defaultDescription="Accounts Receivable Analytics"/>
+  <metadata changedAt="2018-08-13 16:02:17.602"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="32"/>
+  <dataSources>
+    <DataSource id="PS_TBF_AR_Invoices" type="TABLE_FUNCTION">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>PS-CMP-INVOICE-ANALYTICS::PS_TBF_AR_Invoices</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews/>
+  <logicalModel id="PS_TBF_AR_Invoices">
+    <descriptions/>
+    <attributes>
+      <attribute id="Document_No" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Document No"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Document_No"/>
+      </attribute>
+      <attribute id="Payment_Complete" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment Completion Status"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Payment_Complete"/>
+      </attribute>
+      <attribute id="Currency" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Currency"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Currency"/>
+      </attribute>
+      <attribute id="Paid_in_Full_Date" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Paid in Full Date"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Paid_in_Full_Date"/>
+      </attribute>
+      <attribute id="Document_Status" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Document Status"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Document_Status"/>
+      </attribute>
+      <attribute id="Cost_Center" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Cost Center"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Cost_Center"/>
+      </attribute>
+      <attribute id="PaymentTerms_ID" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PaymentTerms"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="PaymentTerms_ID"/>
+      </attribute>
+      <attribute id="Business_Partner" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Business Partner"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Business_Partner"/>
+      </attribute>
+      <attribute id="DATE_SQL" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Invoice Date"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="DATE_SQL"/>
+      </attribute>
+      <attribute id="YEAR" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Year"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="YEAR"/>
+      </attribute>
+      <attribute id="QUARTER" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Quarter"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="QUARTER"/>
+      </attribute>
+      <attribute id="MONTH" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Month"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="MONTH"/>
+      </attribute>
+      <attribute id="WEEK" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Week"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="WEEK"/>
+      </attribute>
+      <attribute id="DAY_OF_WEEK" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Day of Week"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="DAY_OF_WEEK"/>
+      </attribute>
+      <attribute id="DAY" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Day"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="DAY"/>
+      </attribute>
+      <attribute id="CALQUARTER" order="16" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CalQuarter"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CALQUARTER"/>
+      </attribute>
+      <attribute id="CALMONTH" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CalMonth"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CALMONTH"/>
+      </attribute>
+      <attribute id="CALWEEK" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CalWeek"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CALWEEK"/>
+      </attribute>
+      <attribute id="YEAR_INT" order="19" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Year INT"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="YEAR_INT"/>
+      </attribute>
+      <attribute id="QUARTER_INT" order="20" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Quarter INT"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="QUARTER_INT"/>
+      </attribute>
+      <attribute id="MONTH_INT" order="21" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Month INT"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="MONTH_INT"/>
+      </attribute>
+      <attribute id="WEEK_INT" order="22" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Week INT"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="WEEK_INT"/>
+      </attribute>
+      <attribute id="DAY_INT" order="23" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Day INT"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="DAY_INT"/>
+      </attribute>
+      <attribute id="WEEK_YEAR" order="24" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Week Year"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="WEEK_YEAR"/>
+      </attribute>
+      <attribute id="LTX" order="25" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Month"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="LTX"/>
+      </attribute>
+      <attribute id="KTX" order="26" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Month Name(Long)"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="KTX"/>
+      </attribute>
+      <attribute id="CC_Payment_Terms_Over_Flag" order="27" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment Terms Over Flag"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Payment_Terms_Over_Flag"/>
+      </attribute>
+      <attribute id="CC_Expected_Payment_Date" order="28" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Expected Payment Date"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Expected_Payment_Date"/>
+      </attribute>
+      <attribute id="CC_Expected_Payment_Year" order="29" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Expected Payment Year"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Expected_Payment_Year"/>
+      </attribute>
+      <attribute id="CC_Expected_Payment_Month" order="30" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Expected Payment Month"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Expected_Payment_Month"/>
+      </attribute>
+      <attribute id="CC_Expected_Quarter" order="31" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Expected Quarter"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Expected_Quarter"/>
+      </attribute>
+      <attribute id="Paid_Occurence" order="36" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Receival Occurrence"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Paid_Occurence"/>
+      </attribute>
+      <attribute id="Sales_Organization" order="49" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Sales Organization"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Sales_Organization"/>
+      </attribute>
+      <attribute id="Company_Code" order="50" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Company Code"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Company_Code"/>
+      </attribute>
+      <attribute id="Payment_Due_Occurence" order="52" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="Payment Due Occurence"/>
+        <keyMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Payment_Due_Occurence"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="Total_Paid" order="32" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Received"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Total_Paid"/>
+      </measure>
+      <measure id="Total_Outstanding" order="33" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Total Outstanding Amt. (USD)"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Total_Outstanding"/>
+      </measure>
+      <measure id="Cummulative_Paid" order="34" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Cumulative Received Amt."/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Cummulative_Paid"/>
+      </measure>
+      <measure id="Cummulative_Outstanding" order="35" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Cumulative Outstanding"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Cummulative_Outstanding"/>
+      </measure>
+      <measure id="CC_Total_Invoices" order="37" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Total Invoices"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Total_Invoices"/>
+      </measure>
+      <measure id="Total_Gross_Amount" order="38" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Gross_Amount"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Total_Gross_Amount"/>
+      </measure>
+      <measure id="RC_Paid_Invoices" order="39" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Paid Invoices"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="RC_Paid_Invoices"/>
+      </measure>
+      <measure id="RC_UnPaid_Invoices" order="40" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription=" Unpaid Invoices"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="RC_UnPaid_Invoices"/>
+      </measure>
+      <measure id="CC_Overdue_Amount" order="41" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Overdue Amount"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Overdue_Amount"/>
+      </measure>
+      <measure id="CC_Due_Amount" order="42" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Due Amount"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Due_Amount"/>
+      </measure>
+      <measure id="CC_Invoice_Paid_Days_Between" order="43" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Invoice Received Days Between"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_Invoice_Paid_Days_Between"/>
+      </measure>
+      <measure id="Total_Net_Amount" order="48" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Net Amount"/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="Total_Net_Amount"/>
+      </measure>
+      <measure id="CC_PaymentTerm_Days" order="51" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="Payment-term Days "/>
+        <measureMapping columnObjectName="PS_TBF_AR_Invoices" columnName="CC_PaymentTerm_Days"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures>
+      <measure id="CC_Overdue" hidden="false" order="44" aggregationType="sum" measureType="simple" datatype="DECIMAL" expressionLanguage="COLUMN_ENGINE" length="13" scale="3">
+        <descriptions defaultDescription="Overdue Amount"/>
+        <formula>&quot;Total_Outstanding&quot;-&quot;CC_Due_Amount&quot;</formula>
+      </measure>
+      <measure id="CC_Overdue_Amount_Percentage" hidden="false" order="45" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Overdue Amount in %"/>
+        <formula>(&quot;CC_Overdue&quot;/&quot;Total_Gross_Amount&quot;)*100</formula>
+      </measure>
+      <measure id="CC_Amount_Paid_Percentage" hidden="false" order="46" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Amount Received in %"/>
+        <formula>(&quot;Total_Paid&quot;/&quot;Total_Gross_Amount&quot;)*100</formula>
+      </measure>
+      <measure id="CC_Due_Amount_Percetage" hidden="false" order="47" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Due Amount in %"/>
+        <formula>(&quot;CC_Due_Amount&quot;/&quot;Total_Gross_Amount&quot;)*100</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

@@ -1,0 +1,94 @@
+service
+{
+"PS-CMP-INVOICE-ANALYTICS::AN_PS_INVOICE_ANALYTICS" as "Invoice_Analytics_With_Draft"
+with ("YEAR","MONTH","QUARTER","WEEK","LTX","KTX","Payment_Complete","Currency","Document_Status","Transaction_Document",
+"DATE_SQL","Business_Partner","Sales_Organization","PaymentTerms_Days","Company_Group","Company_Code","CC_Total_Invoices",
+"Total_Gross_Amount","Total_Paid","Total_Outstanding","Amount_Currently_Due","Days_Till_Next_Due","Percentage_Paid_Late",
+"Total_Net_Amount")
+keys generate local "GenID"  
+	aggregates always (
+	SUM of "CC_Total_Invoices",
+	SUM of "Total_Gross_Amount",
+	SUM of "Total_Paid",
+	SUM of "Total_Outstanding",
+	SUM of "Amount_Currently_Due",
+	SUM of "Days_Till_Next_Due",
+	SUM of "Percentage_Paid_Late",
+	SUM of "Total_Net_Amount"
+	        );
+"PS-CMP-INVOICE-ANALYTICS::CV_PS_AR_INVOICE_ANALYTICS" as "Invoice_Analytics_AR"
+with("YEAR","YEAR_INT","MONTH","MONTH_INT","QUARTER","WEEK","LTX","KTX",
+    "Payment_Complete","Currency","Document_Status","Transaction_Document",
+    "DATE_SQL","Business_Partner","Sales_Organization","PaymentTerms_Days","PaymentTerms_ID",
+     "CC_Payment_Terms_Over_Flag",
+     
+"Total_Outstanding",
+"CC_Total_Invoices",
+"Total_Gross_Amount",
+"Total_Paid",
+"Days_Till_Next_Due",
+"Percentage_Paid_Late",
+"Total_Net_Amount",
+"CC_Amount_Paid_Percentage",
+"RC_UnPaid_Invoices",
+"RC_Paid_Invoices",
+"CC_Amount_Due_Percentage",
+"CC_Overdue_Amount",
+"CC_Due_Amount")
+keys generate local "GenID"
+aggregates always (
+SUM of "Total_Outstanding",
+	SUM of "CC_Overdue_Amount",
+	SUM of "CC_Due_Amount",
+	SUM of "CC_Amount_Due_Percentage",
+	SUM of "Percentage_Paid_Late",
+	SUM of "Total_Net_Amount",
+	SUM of "CC_Amount_Paid_Percentage",
+	SUM of "RC_UnPaid_Invoices",
+	SUM of "RC_Paid_Invoices",
+	SUM of "PaymentTerms_Days",
+	SUM of "Total_Paid"
+	        );
+	        
+
+
+"PS-CMP-INVOICE-ANALYTICS::CV_PS_AP_INVOICE_ANALYTICS" as "Invoice_Analytics_AP"
+with("YEAR","YEAR_INT","MONTH","MONTH_INT","QUARTER","WEEK","LTX","KTX",
+    "Business_Partner","Currency","DATE_SQL","Purchase_Group","Purchase_Org","PaymentTerms_Days","PaymentTerms_ID",
+        
+"Total_Outstanding",
+"Total_Gross_Amount",
+"Total_Net_Amount",
+"CC_Amount_Paid_Percentage",
+"CC_Amount_Due_Percentage",
+"Total_Paid",
+"CC_Due_Amt",
+"CC_Overdue_Amount",
+ "Total_Purchase_Invoices",
+ "CC_Total_Paid_Invoices",
+ "CC_Total_Unpaid_Invoices")
+keys generate local "GenID"
+aggregates always (
+    SUM of "Total_Outstanding",
+	SUM of "Total_Gross_Amount",
+	SUM of "Total_Net_Amount",
+	SUM of "CC_Amount_Paid_Percentage",
+	SUM of "CC_Amount_Due_Percentage",
+	SUM of "Total_Paid",
+	SUM of "CC_Due_Amt",
+	SUM of "CC_Overdue_Amount",
+	SUM of "Total_Purchase_Invoices",
+	SUM of "CC_Total_Paid_Invoices",
+    SUM of "CC_Total_Unpaid_Invoices"
+
+	
+	
+	        );
+	        
+
+
+
+
+	               
+
+}annotations {   enable OData4SAP;}

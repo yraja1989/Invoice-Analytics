@@ -1,0 +1,96 @@
+service
+{
+"PS-CMP-INVOICE-ANALYTICS::CV_AR_INVOICE_ANALYTICS" as "Invoice_Analytics_AR"
+with ("Payment_Complete","Paid_in_Full_Date","Document_Status",
+"PaymentTerms_ID","Business_Partner","DATE_SQL","YEAR","QUARTER","MONTH","WEEK","YEAR_INT","MONTH_INT","LTX","Paid_Occurence",
+"Sales_Organization","Company_Code",
+"Total_Paid","Total_Outstanding",
+"Cummulative_Paid","Cummulative_Outstanding",
+"CC_Total_Invoices","Total_Gross_Amount","RC_Paid_Invoices",
+"RC_UnPaid_Invoices","CC_Overdue_Amount",
+"CC_Due_Amount","CC_Invoice_Paid_Days_Between","CC_Overdue","CC_Overdue_Amount_Percentage",
+"CC_Amount_Paid_Percentage","CC_Due_Amount_Percetage","Total_Net_Amount"
+)
+keys generate local "GenID"  
+	aggregates always (
+	SUM of "Total_Paid",
+	SUM of "Total_Outstanding",
+	SUM of "CC_Total_Invoices",
+	SUM of "Total_Gross_Amount",
+	SUM of "RC_Paid_Invoices",
+	SUM of "RC_UnPaid_Invoices",
+	SUM of "CC_Overdue_Amount",
+
+	SUM of "CC_Due_Amount",
+	SUM of "CC_Invoice_Paid_Days_Between",
+	SUM of "CC_Overdue",
+	SUM of "CC_Overdue_Amount_Percentage",
+	SUM of "CC_Amount_Paid_Percentage",
+	SUM of "CC_Due_Amount_Percetage",
+	SUM of "Total_Net_Amount"
+	
+	
+	
+	
+	        );
+"PS-CMP-INVOICE-ANALYTICS::CV_AP_INVOICE_ANALYTICS" as "Invoice_Analytics_AP"
+with("YEAR",
+"Business_Partner","Company_Name","DATE_SQL","Paid_Occurence",
+"KTX", "MONTH_INT","YEAR","YEAR_INT",	
+"PaymentTerms_Days","Paid_In_Full_Date",
+"Document_Status",
+"Invoice_Received_Date",
+"PaymentTerms_ID",
+"Purchase_Group",
+"CC_Payments_Over",
+"CC_Expected_Payment_Year",
+"CC_Expected_Payment_Month",
+"CC_Excepted_Payment_Quarter",     
+"CC_Invoice_Receive_Year",
+"CC_Invoice_Receive_Month",
+"CC_Invoice_Receive_Quarter",
+"Total_Gross_Amount",
+"Total_Paid",
+"Total_Purchase_Invoices",
+"CC_Total_Paid_Invoices",
+"CC_Total_Unpaid_Invoices",
+"CC_Expected_Payment_Days",
+"Total_Net_Amount",
+"Amount_Currently_Due",
+"Total_Outstanding",
+"CC_Days_Betweens",
+"CC_Due_Amt",
+"CC_Overdue_Amount",
+"CC_Payment_Days",
+"CC_Days_Between_Invoice_ReceiveDate",
+"Cumulative_Paid",
+"Cumulative_Outstanding",
+"CC_Paid_Amount_Percentage",
+"CC_Due_Amount_Percentage",
+"CC_Overdue_Amount_Percentage"
+
+)
+keys generate local "GenID"
+aggregates always (
+
+
+SUM of "Total_Net_Amount",
+SUM of "Amount_Currently_Due",
+SUM of "Total_Outstanding",
+SUM of "CC_Days_Betweens",
+SUM of "CC_Due_Amt",
+SUM of "CC_Overdue_Amount",
+SUM of "CC_Payment_Days",
+SUM of "CC_Days_Between_Invoice_ReceiveDate",
+SUM of "Cumulative_Paid",
+SUM of "Cumulative_Outstanding",
+SUM of "CC_Paid_Amount_Percentage",
+SUM of "CC_Due_Amount_Percentage",
+SUM of "CC_Overdue_Amount_Percentage"
+
+	        );
+	        
+
+
+
+}annotations {   enable OData4SAP;}

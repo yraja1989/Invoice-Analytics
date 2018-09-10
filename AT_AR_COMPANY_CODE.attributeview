@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dimension:dimension xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="1.2" id="AT_AR_COMPANY_CODE" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" dimensionType="Standard">
+  <origin/>
+  <descriptions defaultDescription="Company Code Master"/>
+  <metadata changedAt="2018-09-10 16:16:56.39" createdAt="2018-09-10 16:16:43.223"/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <attributes>
+    <attribute id="Company_Group_ID" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Company_Group_ID"/>
+    </attribute>
+    <attribute id="Company_Group" order="2" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Company_Group"/>
+    </attribute>
+    <attribute id="Company_Code_ID" key="true" order="3" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Company_Code_ID"/>
+    </attribute>
+    <attribute id="Company_Code" order="4" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Company_Code"/>
+    </attribute>
+    <attribute id="Organization_ID" key="true" order="5" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Organization_ID"/>
+    </attribute>
+    <attribute id="Sales_Organization" order="6" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="Sales Org"/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Organization"/>
+    </attribute>
+    <attribute id="Distrubution_Channel" order="7" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Distrubution Channel"/>
+    </attribute>
+    <attribute id="Business_Partner_ID" key="true" order="8" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER" columnName="Business_Partner"/>
+    </attribute>
+    <attribute id="Business_Partner" order="9" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="Business Partner"/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER" columnName="Business Partner"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <privateDataFoundation>
+    <tableProxies>
+      <tableProxy>
+        <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER"/>
+      </tableProxy>
+      <tableProxy>
+        <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER"/>
+      </tableProxy>
+    </tableProxies>
+    <joins>
+      <join>
+        <leftTable schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_SALES_ORG_MASTER"/>
+        <rightTable schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER"/>
+        <leftColumns>
+          <columnName>Business_Partner</columnName>
+        </leftColumns>
+        <rightColumns>
+          <columnName>Business_Partner_ID</columnName>
+        </rightColumns>
+        <properties joinOperator="Equal" joinType="referential"/>
+      </join>
+    </joins>
+    <layout>
+      <shapes>
+        <shape modelObjectName="PS_CIA_SALES_ORG_MASTER" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+          <upperLeftCorner x="70" y="30"/>
+        </shape>
+        <shape modelObjectName="PS_CIA_BUSINESS_PARTNERS_MASTER" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+          <upperLeftCorner x="484" y="30"/>
+        </shape>
+        <shape modelObjectName="DataFoundation" modelObjectNameSpace="DataFoundation" modelObjectType="repository">
+          <upperLeftCorner x="40" y="85"/>
+          <rectangleSize height="0" width="0"/>
+        </shape>
+      </shapes>
+    </layout>
+  </privateDataFoundation>
+  <hierarchies/>
+</Dimension:dimension>

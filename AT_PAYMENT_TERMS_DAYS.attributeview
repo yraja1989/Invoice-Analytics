@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dimension:dimension xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="1.2" id="AT_PAYMENT_TERMS_DAYS" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="internal" dimensionType="Standard">
+  <origin/>
+  <descriptions defaultDescription="Payment Terms Days"/>
+  <metadata changedAt="2018-08-08 22:21:21.451"/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <attributes>
+    <attribute id="PaymentTerms_ID" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PAYMENT_TERMS_DAYS_MASTER" columnName="PaymentTerms_ID"/>
+    </attribute>
+    <attribute id="PaymentTerms_Days" order="2" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="Payment Terms (Days)"/>
+      <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PAYMENT_TERMS_DAYS_MASTER" columnName="PaymentTerms_Days"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="CC_PaymentDays" hidden="true" order="3" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+      <descriptions defaultDescription="CC_PaymentDays"/>
+      <keyCalculation datatype="VARCHAR" expressionLanguage="COLUMN_ENGINE" length="3">
+        <formula>&quot;PaymentTerms_Days&quot;</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
+  <privateDataFoundation>
+    <tableProxies>
+      <tableProxy>
+        <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_PAYMENT_TERMS_DAYS_MASTER"/>
+      </tableProxy>
+    </tableProxies>
+    <joins/>
+    <layout>
+      <shapes>
+        <shape modelObjectName="PS_CIA_PAYMENT_TERMS_DAYS_MASTER" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+          <upperLeftCorner x="70" y="30"/>
+        </shape>
+        <shape modelObjectName="DataFoundation" modelObjectNameSpace="DataFoundation" modelObjectType="repository">
+          <upperLeftCorner x="40" y="85"/>
+          <rectangleSize height="0" width="0"/>
+        </shape>
+      </shapes>
+    </layout>
+  </privateDataFoundation>
+  <hierarchies/>
+</Dimension:dimension>

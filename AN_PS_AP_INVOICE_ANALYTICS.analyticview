@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Cube:cube xmlns:Cube="http://www.sap.com/ndb/BiModelCube.ecore" schemaVersion="1.5" id="AN_PS_AP_INVOICE_ANALYTICS" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled">
+  <origin/>
+  <descriptions defaultDescription="AN_PS_AP_INVOICE_ANALYTICS"/>
+  <metadata changedAt="2018-07-30 15:48:39.185"/>
+  <localVariables/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <privateMeasureGroup id="MeasureGroup">
+    <attributes>
+      <attribute id="Currency" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Currency"/>
+      </attribute>
+      <attribute id="Creation_Date" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Creation_Date"/>
+      </attribute>
+      <attribute id="Document_No_" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Document_No."/>
+      </attribute>
+      <attribute id="Payment_Method" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Payment_Method"/>
+      </attribute>
+      <attribute id="Purchase_Org" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Purchase_Org."/>
+      </attribute>
+      <attribute id="Payment_Completed" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Payment_Completed"/>
+      </attribute>
+      <attribute id="Paid_In_Full_Date" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Paid_In_Full_Date"/>
+      </attribute>
+      <attribute id="Document_Status" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Document_Status"/>
+      </attribute>
+      <attribute id="Accounting_Date" order="17" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Accounting_Date"/>
+      </attribute>
+      <attribute id="Invoice_Received_Date" order="18" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Invoice_Received_Date"/>
+      </attribute>
+      <attribute id="Invoice_Date" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Invoice_Date"/>
+      </attribute>
+      <attribute id="Business_Partner" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Business_Partner"/>
+      </attribute>
+      <attribute id="Payment_Terms" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions/>
+        <keyMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Payment_Terms"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies>
+        <tableProxy centralTable="true">
+          <table schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES"/>
+        </tableProxy>
+      </tableProxies>
+      <joins/>
+      <layout>
+        <shapes>
+          <shape modelObjectName="PS_CIA_AP_PURCHASE_INVOICES" modelObjectNameSpace="PS_CMP_TIME_ANALYTICS" modelObjectType="catalog">
+            <upperLeftCorner x="70" y="30"/>
+          </shape>
+        </shapes>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="Total_Paid" order="1" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Total_Paid"/>
+      </measure>
+      <measure id="Total_Gross_Amount" order="2" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Total_Gross_Amount"/>
+      </measure>
+      <measure id="Total_Net_Amount" order="12" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Total_Net_Amount"/>
+      </measure>
+      <measure id="Days_to_Pay_in_Full" order="14" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Days_to_Pay_in_Full"/>
+      </measure>
+      <measure id="Amount_Currently_Due" order="15" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Amount_Currently_Due"/>
+      </measure>
+      <measure id="Total_Outstanding" order="16" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Total_Outstanding"/>
+      </measure>
+      <measure id="Days_Till_Next_Due" order="19" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Days_Till_Next_Due"/>
+      </measure>
+      <measure id="Percentage_Paid_Late" order="20" aggregationType="sum" measureType="simple">
+        <descriptions/>
+        <measureMapping schemaName="PS_CMP_TIME_ANALYTICS" columnObjectName="PS_CIA_AP_PURCHASE_INVOICES" columnName="Percentage_Paid_Late"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures>
+      <measure id="Total_Purchase_Invoices" hidden="false" order="8" aggregationType="sum" measureType="simple" calculatedMeasureType="counter" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Total Purchase Invoices"/>
+        <exceptionAggregation exceptionAggregationType="countDistinct">
+          <attribute attributeName="Document_No_"/>
+        </exceptionAggregation>
+        <formula>1</formula>
+      </measure>
+      <measure id="CC_Paid_Indicator" hidden="false" order="10" aggregationType="count" engineAggregation="sum" measureType="simple" calculateBeforeAggregation="true" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <descriptions defaultDescription="Paid Indicator"/>
+        <formula>if(&quot;Payment_Completed&quot;='TRUE',1,1)</formula>
+      </measure>
+    </calculatedMeasures>
+    <restrictedMeasures/>
+    <sharedDimensions>
+      <logicalJoin associatedObjectUri="/PS-CMP-INVOICE-ANALYTICS/attributeviews/AT_INVOICE_TIME_DIMENSION">
+        <attributes>
+          <attributeRef>#Invoice_Date</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>DATE_SQL</attributeName>
+        </associatedAttributeNames>
+        <properties joinOperator="Equal" joinType="referential"/>
+        <associatedAttributeFeatures>
+          <attributeReference attributeName="CALQUARTER" hidden="true"/>
+          <attributeReference attributeName="CALMONTH" hidden="true"/>
+          <attributeReference attributeName="CALWEEK" hidden="true"/>
+          <attributeReference attributeName="QUARTER_INT" hidden="true"/>
+        </associatedAttributeFeatures>
+      </logicalJoin>
+      <logicalJoin associatedObjectUri="/PS-CMP-INVOICE-ANALYTICS/attributeviews/AT_AP_COMPANY_CODE">
+        <attributes>
+          <attributeRef>#Business_Partner</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>Business_Partner_ID</attributeName>
+        </associatedAttributeNames>
+        <properties joinOperator="Equal" joinType="referential"/>
+        <associatedAttributeFeatures>
+          <attributeReference attributeName="Business_Partner_ID" hidden="true"/>
+        </associatedAttributeFeatures>
+      </logicalJoin>
+      <logicalJoin associatedObjectUri="/PS-CMP-INVOICE-ANALYTICS/attributeviews/AT_PAYMENT_TERMS_DAYS">
+        <attributes>
+          <attributeRef>#Payment_Terms</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>PaymentTerms_ID</attributeName>
+        </associatedAttributeNames>
+        <properties joinOperator="Equal" joinType="referential"/>
+        <associatedAttributeFeatures>
+          <attributeReference attributeName="PaymentTerms_ID" hidden="true"/>
+        </associatedAttributeFeatures>
+      </logicalJoin>
+    </sharedDimensions>
+    <layout>
+      <shapes>
+        <shape modelObjectName="MEASURE_GROUP" modelObjectType="repository">
+          <upperLeftCorner x="426" y="52"/>
+        </shape>
+        <shape modelObjectName="/PS-CMP-INVOICE-ANALYTICS/attributeviews/AT_INVOICE_TIME_DIMENSION" modelObjectType="repository">
+          <upperLeftCorner x="735" y="38"/>
+        </shape>
+        <shape modelObjectName="/PS-CMP-INVOICE-ANALYTICS/attributeviews/AT_AP_COMPANY_CODE" modelObjectType="repository">
+          <upperLeftCorner x="-21" y="159"/>
+        </shape>
+        <shape modelObjectName="/PS-CMP-INVOICE-ANALYTICS/attributeviews/AT_PAYMENT_TERMS_DAYS" modelObjectType="repository">
+          <upperLeftCorner x="683" y="404"/>
+        </shape>
+        <shape modelObjectName="LogicalView" modelObjectNameSpace="MeasureGroup" modelObjectType="repository">
+          <upperLeftCorner x="40" y="85"/>
+          <rectangleSize height="0" width="0"/>
+        </shape>
+      </shapes>
+    </layout>
+  </privateMeasureGroup>
+</Cube:cube>
